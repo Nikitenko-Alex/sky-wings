@@ -11,31 +11,21 @@
 $srt = file_get_contents('http://sky-wings/trainee/group28/users.json');
 $arr = json_decode($srt, true);
 //var_dump($arr);
-
 foreach ($arr as $value) {
 //    var_dump($value);
     if ($value['address']['city'] == "Днепр") {
         echo $value['firstName'] . ' ' . $value['lastName'] . '<br>';
     }
 }
+echo "<hr>";
 
-//Делаем массив для корзины магазина вида:
-//Для этого массива делаем несколкьо задач для пересчета суммы, с учетом скидочной системы:
-//1. Если общее  кол-во товаров больше 10 то даем скидку 10%
-//2. Если сумма больше 2000 даем скидку 7%
+//Function example.
+function makecoffee($type = "<b>'Напиток не выбран'</b>", $sugor = "<b>0</b>")
+{
+//    var_dump(func_get_args ( ));
+    return "Готовим чашку <b>$type</b>" . " и $sugor ложек сахара" . "<br>";
+}
 
-
-$sum = 700;
-$items = [
-    [
-        'id' => 34,
-        'quantity' => 2,
-        'price' => 200
-    ],
-    [
-        'id' => 2,
-        'quantity' => 5,
-        'price' => 100
-    ]
-];
-
+echo makecoffee();
+echo makecoffee(null);
+echo makecoffee("Эспрессо");
